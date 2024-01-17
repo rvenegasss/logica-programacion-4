@@ -1,44 +1,26 @@
-function calcularFibonacci(n) {
-    let fibonacciArray = [0, 1];
+function calcularFibonacci() {
+    let userInput = document.getElementById("numeroInput").value; //tomamos lo que ingresa
+    let num = parseInt(userInput); 
 
-    for (let i = 2; i < n; i++) {
-        fibonacciArray[i] = fibonacciArray[i - 1] + fibonacciArray[i - 2];
+    if (isNaN(num) || num < 0) { //ve que sea un valor válido
+        alert("Ingrese un número válido y positivo.");
+        return; 
     }
 
-    return fibonacciArray;
+    let resultado = generarSecuenciaFibonacci(num);
+    let resultadoP = document.getElementById("resultado"); //para que aparezca en em dom
+    resultadoP.textContent = `Secuencia de Fibonacci (${num} números): ${resultado.join(", ")}`;
+
+    console.log("Secuencia de Fibonacci:", resultado);
 }
-
-// Función para imprimir la serie de Fibonacci en el DOM
-function imprimirFibonacciEnDOM() {
-    let userInput;
-    
-    // Solicitar al usuario un número hasta que se ingrese un valor válido
-    do {
-        userInput = prompt("Ingrese un número para la serie de Fibonacci:");
-    } while (isNaN(userInput) || userInput === null);
-
-    const n = parseInt(userInput);
-
-    // Calcular la serie de Fibonacci
-    const fibonacciSeries = calcularFibonacci(n);
-
-    // Obtener el elemento del DOM donde se mostrará la serie
-    const outputElement = document.getElementById("output");
-
-    // Limpiar contenido anterior
-    outputElement.innerHTML = "";
-
-    // Crear un elemento de lista y agregar cada número de la serie
-    const ul = document.createElement("ul");
-    fibonacciSeries.forEach(num => {
-        const li = document.createElement("li");
-        li.textContent = num;
-        ul.appendChild(li);
-    });
-
-    // Agregar la lista al elemento de salida en el DOM
-    outputElement.appendChild(ul);
-}
-
-// Llamar a la función para imprimir la serie de Fibonacci en el DOM
-imprimirFibonacciEnDOM();
+function generarSecuenciaFibonacci(n) {
+    let secuencia = [];
+    for (let i = 0; i < n; i++) {
+        if (i <= 1) {
+            secuencia.push(i); //.push agrega valores al final, es un método de array
+        } else {
+            secuencia.push(secuencia[i - 1] + secuencia[i - 2]);
+        }
+    }
+    return secuencia;
+} //busque info para hacer la secuencia

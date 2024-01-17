@@ -1,15 +1,18 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Serie de Fibonacci</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fibonacci Sequence Calculator</title>
 </head>
 <body>
-    <!-- El siguiente elemento se utilizará para mostrar la serie de Fibonacci en el DOM -->
-    <div id="output"></div>
+  <div>
+    <label for="numeroInput">Ingrese un número:</label>
+    <input type="text" id="numeroInput">
+    <button onclick="calcularFibonacci()">Calcular Fibonacci</button>
+    <p id="resultado"></p> 
+  </div>
 
-    <!-- Enlazar el archivo JavaScript -->
-    <script src="fibonacci.js"></script>
+  <script src="ej4.js"></script>
 </body>
 </html>
