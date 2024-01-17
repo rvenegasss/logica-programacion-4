@@ -8,14 +8,16 @@ function calcularFibonacci() {
     }
 
     let resultado = generarSecuenciaFibonacci(num);
+    
     let resultadoP = document.getElementById("resultado"); //para que aparezca en em dom
     resultadoP.textContent = `Secuencia de Fibonacci (${num} números): ${resultado.join(", ")}`;
-
+    //.join concatena 
     console.log("Secuencia de Fibonacci:", resultado);
 }
 function generarSecuenciaFibonacci(n) {
+    
     let secuencia = [];
-    for (let i = 0; i < n; i++) {
+    for (let i = 0; i < n; i++) { //parte de 0 y va creciendo
         if (i <= 1) {
             secuencia.push(i); //.push agrega valores al final, es un método de array
         } else {
